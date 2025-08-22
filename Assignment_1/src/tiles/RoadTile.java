@@ -1,12 +1,16 @@
-public class BuildingTile implements Tile {
+package src.tiles;
+
+import src.Tile;
+
+public class RoadTile implements Tile {
     @Override
     public String getCharacter() {
-        return "B";
+        return "R";
     }
 
     @Override
     public String getDescription() {
-        return "tile with a building";
+        return "Road that one may walk on";
     }
 
     @Override

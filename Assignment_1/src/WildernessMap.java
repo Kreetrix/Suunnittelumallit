@@ -1,4 +1,7 @@
+package src;
 import java.util.Random;
+
+import src.tiles.*;
 
 public class WildernessMap extends Map{
     @Override

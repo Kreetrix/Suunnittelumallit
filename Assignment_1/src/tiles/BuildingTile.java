@@ -1,12 +1,16 @@
-public class SwampTile implements Tile {
+package src.tiles;
+
+import src.Tile;
+
+public class BuildingTile implements Tile {
     @Override
     public String getCharacter() {
-        return "S";
+        return "B";
     }
 
     @Override
     public String getDescription() {
-        return "It's like water but different";
+        return "tile with a building";
     }
 
     @Override
