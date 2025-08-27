@@ -14,7 +14,7 @@ public class Main {
 
         department_1.add(niko);
         department_1.add(pekka);
-        
+
         department_2.add(ilkka);
 
         department_1.add(department_2);
@@ -30,12 +30,10 @@ public class Main {
         department_1.remove(niko);
         department_1.remove(department_2);
 
-
         System.out.println("");
         System.out.println(organization.getXML(0));
         salary = organization.getSalary();
         System.out.println("\nOrganization salary -> " + salary);
-
 
     }
 }

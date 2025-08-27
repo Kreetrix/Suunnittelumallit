@@ -26,23 +26,21 @@ public class Department extends Component {
 
     @Override
     public void remove(Component component) {
-        if(component instanceof Department) {
+        if (component instanceof Department) {
             System.out.println("Removed -> " + component.name);
             this.departments.remove(component);
-        }
-        else if(component instanceof Employee){
+        } else if (component instanceof Employee) {
             System.out.println("Removed -> " + component.name);
             this.employees.remove(component);
         }
-        
+
     }
 
     @Override
     public void add(Component component) {
-        if(component instanceof Department) {
+        if (component instanceof Department) {
             this.departments.add(component);
-        }
-        else if(component instanceof Employee){
+        } else if (component instanceof Employee) {
             this.employees.add(component);
         }
     }
@@ -53,13 +51,13 @@ public class Department extends Component {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("%s<department name=\"%s\">\n", indent, name));
 
-        if(!employees.isEmpty()){
+        if (!employees.isEmpty()) {
             for (Component e : employees) {
                 sb.append(e.getXML(space + 1)).append("\n");
             }
         }
-        
-        if(!departments.isEmpty()){
+
+        if (!departments.isEmpty()) {
             for (Component d : departments) {
                 sb.append(d.getXML(space + 1)).append("\n");
             }
@@ -69,5 +67,4 @@ public class Department extends Component {
         return sb.toString();
     }
 
-    
 }

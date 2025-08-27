@@ -1,8 +1,11 @@
 {
-  "java.project.sourcePaths": [
-    "Assignment_1",
-    "Assignment_2",
-    "Assignment_3"
-  ],
-  "java.project.outputPath": "bin"
+    "java.project.sourcePaths": [
+        "Assignment_1",
+        "Assignment_2",
+        "Assignment_3",
+        "Assignment_4"
+    ],
+    "java.project.outputPath": "bin",
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": null
 }

@@ -1,4 +1,5 @@
 package src;
+
 public class Employee extends Component {
 
     protected int salary;
@@ -30,5 +31,5 @@ public class Employee extends Component {
         String indent = "    ".repeat(space);
         return String.format("%s<employee name=\"%s\" salary=\"%d\"/>", indent, name, salary);
     }
-    
+
 }

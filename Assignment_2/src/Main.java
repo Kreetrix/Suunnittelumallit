@@ -4,7 +4,7 @@ import src.A.AFactory;
 import src.B.BFactory;
 
 public class Main {
-     public static void main(String[] args) {
+    public static void main(String[] args) {
         UIFactory factory = new AFactory();
 
         Button button = factory.createButton("This is an A button");
@@ -20,7 +20,7 @@ public class Main {
         textField.setText("text replaces an A textFiedl");
 
         factory = new BFactory();
-        
+
         button = factory.createButton("This is a B button");
         checkbox = factory.createCheckbox("This is a B checkbox");
         textField = factory.createTextField("This is a B text field");
@@ -33,6 +33,7 @@ public class Main {
         checkbox.setText("This text replaces a B checkbox");
         textField.setText("text replaces a B textFiedl");
 
-        //setText() is better to be defined and implemented in the common base class, so that button, checkbox, and textfield use/inherit it.
+        // setText() is better to be defined and implemented in the common base class,
+        // so that button, checkbox, and textfield use/inherit it.
     }
 }
