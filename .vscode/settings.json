@@ -4,5 +4,13 @@
     ],
     "java.project.outputPath": "bin",
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": null
+    "editor.defaultFormatter": null,
+    "java.project.referencedLibraries": {
+        "include": [
+            "lib/**/*.jar"
+        ],
+        "exclude": [
+            "lib/junit-platform-console-standalone-1.13.0-M3.jar"
+        ]
+    }
 }
