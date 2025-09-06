@@ -1,10 +1,10 @@
 package Assignment_7;
 
 enum Levels {
-    NOVICE(100),
-    INTERMEDIATE(300),
-    EXPERT(1000),
-    MASTER(10000);
+    NOVICE(200),
+    INTERMEDIATE(600),
+    EXPERT(1500),
+    MASTER(3500);
 
     private int threshold;
 
@@ -21,6 +21,6 @@ public record Stats(Levels level, int exp, int hp) {
 
     @Override
     public String toString() {
-        return String.format("\"level\": \"%s\", \"exp\": %d, \"hp\": %d", level, exp, hp);
+        return String.format("\n\"level\": \"%s\", \"exp\": %d, \"hp\": %d", level, exp, hp);
     }
 }

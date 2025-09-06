@@ -3,10 +3,15 @@ package Assignment_7;
 import java.util.Scanner;
 
 import Assignment_7.absctactions.State;
+import Assignment_7.states.ExpertState;
+import Assignment_7.states.IntermediateState;
+import Assignment_7.states.MasterState;
+import Assignment_7.states.NoviceState;
 
 public class Game {
     public Player player;
     protected State state;
+    protected boolean gameOn = true;
 
     public Game(Player player) {
         this.player = player;
@@ -15,44 +20,50 @@ public class Game {
 
     private static Scanner scanner = new Scanner(System.in);
 
+    public void gameStop() {
+        gameOn = false;
+    }
+
     public void start() {
-        while (true) {
+        while (this.gameOn) {
             if (state == null) {
-                System.out.println("Machine out of order");
+                System.out.println("Something went wrong");
                 return;
             }
             state.action();
         }
     }
 
-    private void levelUpMessage(int threshold) {
-        System.out.println("New level - " + this.player.level);
+    private void levelUpMessage() {
+        System.out.println("\nNew level - " + this.player.level);
         if (this.player.level != Levels.MASTER) {
-            System.out.println("Exp for next level - " + (threshold - this.player.EXP));
+            System.out.println("Exp for next level - " + (this.player.level.getThreshold() - this.player.EXP));
         } else
-            System.out.println("You have reach the max level!");
+            System.out.println("\nYou have reach the max level!");
 
     }
 
     public void checkLevelUp() {
-        if (this.player.HP >= 100 && this.player.level == Levels.NOVICE) {
+        if (this.player.EXP >= Levels.NOVICE.getThreshold() && this.player.level == Levels.NOVICE) {
             this.player.level = Levels.INTERMEDIATE;
-            this.levelUpMessage(Levels.EXPERT.getThreshold());
+            this.levelUpMessage();
+            this.setState(new IntermediateState(this));
             return;
         }
-        if (this.player.HP >= 300 && this.player.level == Levels.INTERMEDIATE) {
+        if (this.player.EXP >= Levels.INTERMEDIATE.getThreshold() && this.player.level == Levels.INTERMEDIATE) {
             this.player.level = Levels.EXPERT;
-            this.levelUpMessage(Levels.INTERMEDIATE.getThreshold());
+            this.levelUpMessage();
+            this.setState(new ExpertState(this));
             return;
         }
-        if (this.player.HP >= 1000 && this.player.level == Levels.EXPERT) {
+        if (this.player.EXP >= Levels.EXPERT.getThreshold() && this.player.level == Levels.EXPERT) {
             this.player.level = Levels.MASTER;
+            this.levelUpMessage();
+            this.setState(new MasterState(this));
             return;
         } else if (this.player.level != Levels.MASTER) {
-            Levels[] levels = Levels.values();
-            System.out.println(this.player.level.ordinal());
-            System.out.println("EXP for next level - "
-                    + (levels[this.player.level.ordinal() + 1].getThreshold() - this.player.EXP));
+            System.out.println("\nEXP for next level - "
+                    + (this.player.level.getThreshold() - this.player.EXP));
         }
     }
 
@@ -65,6 +76,7 @@ public class Game {
         for (int i = 1; i <= options.length; i++) {
             System.out.println(i + ". " + options[i - 1]);
         }
+        System.out.println();
         return scanner.nextInt();
     }
 }

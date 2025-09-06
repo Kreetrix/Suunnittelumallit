@@ -1,5 +1,6 @@
-package Assignment_7;
+package Assignment_7.states;
 
+import Assignment_7.Game;
 import Assignment_7.absctactions.State;
 
 public class NoviceState extends State {
@@ -10,10 +11,13 @@ public class NoviceState extends State {
 
     @Override
     public void action() {
-        String[] options = { "Train" };
+        String[] options = { "Train", "Show stats" };
         switch (this.game.readInput(options)) {
             case 1:
                 this.actions.train();
+                break;
+            case 2:
+                this.actions.stats();
                 break;
         }
     }
