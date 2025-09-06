@@ -17,10 +17,10 @@ enum Levels {
     }
 }
 
-public record Stats(Levels level, int exp, int hp) {
+public record Stats(String name, Levels level, int exp, int hp) {
 
     @Override
     public String toString() {
-        return String.format("\n\"level\": \"%s\", \"exp\": %d, \"hp\": %d", level, exp, hp);
+        return String.format("\n\"name\": \"%s\" \"level\": \"%s\", \"exp\": %d, \"hp\": %d", name, level, exp, hp);
     }
 }
