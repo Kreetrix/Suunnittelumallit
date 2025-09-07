@@ -9,8 +9,6 @@
         "include": [
             "lib/**/*.jar"
         ],
-        "exclude": [
-            "lib/junit-platform-console-standalone-1.13.0-M3.jar"
-        ]
-    }
+    },
+    
 }
