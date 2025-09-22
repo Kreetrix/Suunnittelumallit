@@ -78,10 +78,8 @@ public class Controller {
     }
 
     public void setCurrentState(IMemento selectedItem, int index) {
-        System.out.println(history);
         history.subList(index, history.size()).clear();
         redoHistory.clear();
-        System.out.println(history);
         model.restoreState(selectedItem);
         gui.updateGui();
 
