@@ -37,11 +37,27 @@ public class JokeClient {
     }
 
     public static void main(String[] args) {
-        JokeClient client = new JokeClient();
+        ApiAccessFacade facade = new ApiAccessFacade();
+
         try {
-            String jokeText = client.getRandomJoke();
-            System.out.println(jokeText);
+            String joke = facade.getAttributeValueFromJson(
+                    "https://api.chucknorris.io/jokes/random",
+                    "value");
+            System.out.println("Joke: " + joke);
         } catch (Exception e) {
+            System.err.println("Error getting joke: " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        System.out.println("Foreign exchange rates");
+
+        try {
+            String baseCurrency = facade.getAttributeValueFromJson(
+                    "https://api.fxratesapi.com/latest",
+                    "base");
+            System.out.println("Base Currency: " + baseCurrency);
+        } catch (Exception e) {
+            System.err.println("Error getting base currency: " + e.getMessage());
             e.printStackTrace();
         }
     }
