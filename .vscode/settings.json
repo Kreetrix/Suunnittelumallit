@@ -1,15 +1,10 @@
 {
-    "java.project.sourcePaths": [
-        "src/main/java"
-    ],
-    "java.project.outputPath": "bin",
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": null,
-    "java.project.referencedLibraries": {
-        "include": [
-            "C:/Java/javafx-sdk-17.0.16/lib/**/*.jar",
-            "lib/**/*.jar"
-        ],
-    },
-    
+  "java.project.sourcePaths": ["src/main/java"],
+  "java.project.outputPath": "bin",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": null,
+  "java.project.referencedLibraries": {
+    "include": ["C:/Java/javafx-sdk-17.0.16/lib/**/*.jar", "lib/**/*.jar"]
+  },
+  "java.configuration.updateBuildConfiguration": "automatic"
 }
